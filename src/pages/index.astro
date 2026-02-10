@@ -1,12 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { 
+  siGithub, siX, siInstagram, siSpotify,
+  siDocker, siKubernetes,
+  siTypescript, siJavascript, siKotlin, siReact, siVuedotjs,
+  siNextdotjs, siGatsby, siHugo, siSpring, siGraphql,
+  siMongodb, siPostgresql, siElasticsearch,
+  siFlux, siFastly, siContentful,
+  siHomeassistant, siClaude, siWebpack
+} from 'simple-icons';
 
 const socialLinks = [
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/noelarobinson/', icon: '💼' },
-  { name: 'GitHub', url: 'https://github.com/noelrobinson', icon: '🔧' },
-  { name: 'X', url: 'https://x.com/noelrobinson', icon: '𝕏' },
-  { name: 'Instagram', url: 'https://www.instagram.com/noelarobinson/', icon: '📸' },
-  { name: 'Spotify', url: 'https://open.spotify.com/user/1127314265', icon: '🎵' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/noelarobinson/' },
+  { name: 'GitHub', url: 'https://github.com/noelrobinson', iconPath: siGithub.path },
+  { name: 'X', url: 'https://x.com/noelrobinson', iconPath: siX.path },
+  { name: 'Instagram', url: 'https://www.instagram.com/noelarobinson/', iconPath: siInstagram.path },
+  { name: 'Spotify', url: 'https://open.spotify.com/user/1127314265', iconPath: siSpotify.path },
 ];
 
 const books = [
@@ -31,54 +40,54 @@ const leadership = [
 ];
 
 const cloud = [
-  { name: 'FluxCD', url: 'https://fluxcd.io/' },
+  { name: 'FluxCD', url: 'https://fluxcd.io/', iconPath: siFlux.path },
   { name: 'CNCF', url: 'https://www.cncf.io/' },
   { name: 'AWS', url: 'https://aws.amazon.com/' },
   { name: 'Lambda', url: 'https://aws.amazon.com/lambda/' },
   { name: 'AWS Amplify', url: 'https://aws.amazon.com/amplify/' },
   { name: 'Azure', url: 'https://azure.microsoft.com/' },
-  { name: 'Kubernetes', url: 'https://kubernetes.io/' },
-  { name: 'Fastly', url: 'https://www.fastly.com/' },
+  { name: 'Kubernetes', url: 'https://kubernetes.io/', iconPath: siKubernetes.path },
+  { name: 'Fastly', url: 'https://www.fastly.com/', iconPath: siFastly.path },
 ];
 
 const api = [
   { name: 'REST', url: 'https://restfulapi.net/' },
-  { name: 'GraphQL', url: 'https://graphql.org/' },
+  { name: 'GraphQL', url: 'https://graphql.org/', iconPath: siGraphql.path },
 ];
 
 const code = [
-  { name: 'Docker', url: 'https://www.docker.com/' },
-  { name: 'Kotlin', url: 'https://kotlinlang.org/' },
+  { name: 'Docker', url: 'https://www.docker.com/', iconPath: siDocker.path },
+  { name: 'Kotlin', url: 'https://kotlinlang.org/', iconPath: siKotlin.path },
   { name: 'Java', url: 'https://docs.oracle.com/javase/' },
-  { name: 'JavaScript', url: 'https://www.javascript.com/' },
-  { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
-  { name: 'GitHub', url: 'https://github.com/noelrobinson' },
+  { name: 'JavaScript', url: 'https://www.javascript.com/', iconPath: siJavascript.path },
+  { name: 'TypeScript', url: 'https://www.typescriptlang.org/', iconPath: siTypescript.path },
+  { name: 'GitHub', url: 'https://github.com/noelrobinson', iconPath: siGithub.path },
 ];
 
 const frontend = [
-  { name: 'Vue.js', url: 'https://vuejs.org/' },
-  { name: 'React', url: 'https://reactjs.org/' },
-  { name: 'Next.js', url: 'https://nextjs.org/' },
-  { name: 'Gatsby', url: 'https://www.gatsbyjs.com/' },
-  { name: 'HUGO', url: 'https://gohugo.io/' },
+  { name: 'Vue.js', url: 'https://vuejs.org/', iconPath: siVuedotjs.path },
+  { name: 'React', url: 'https://reactjs.org/', iconPath: siReact.path },
+  { name: 'Next.js', url: 'https://nextjs.org/', iconPath: siNextdotjs.path },
+  { name: 'Gatsby', url: 'https://www.gatsbyjs.com/', iconPath: siGatsby.path },
+  { name: 'HUGO', url: 'https://gohugo.io/', iconPath: siHugo.path },
 ];
 
 const frameworks = [
   { name: 'Micro Front Ends', url: '#' },
-  { name: 'Module Federation', url: 'https://webpack.js.org/concepts/module-federation/' },
+  { name: 'Module Federation', url: 'https://webpack.js.org/concepts/module-federation/', iconPath: siWebpack.path },
   { name: 'Micronaut', url: 'https://micronaut.io/' },
-  { name: 'Spring', url: 'https://spring.io/' },
+  { name: 'Spring', url: 'https://spring.io/', iconPath: siSpring.path },
 ];
 
 const databases = [
-  { name: 'Elasticsearch', url: 'https://www.elastic.co/elasticsearch/' },
-  { name: 'MongoDB', url: 'https://www.mongodb.com/' },
-  { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+  { name: 'Elasticsearch', url: 'https://www.elastic.co/elasticsearch/', iconPath: siElasticsearch.path },
+  { name: 'MongoDB', url: 'https://www.mongodb.com/', iconPath: siMongodb.path },
+  { name: 'PostgreSQL', url: 'https://www.postgresql.org/', iconPath: siPostgresql.path },
   { name: 'DynamoDB', url: 'https://aws.amazon.com/dynamodb/' },
 ];
 
 const interests = [
-  { name: 'Home Assistant', url: 'https://www.home-assistant.io/' },
+  { name: 'Home Assistant', url: 'https://www.home-assistant.io/', iconPath: siHomeassistant.path },
   { name: 'SmartThings', url: 'https://www.smartthings.com/' },
   { name: 'eWeLink', url: 'https://www.ewelink.cc/' },
 ];
@@ -100,7 +109,7 @@ const family = [
 ];
 
 const ai = [
-  { name: 'Claude', url: 'https://claude.ai/' },
+  { name: 'Claude', url: 'https://claude.ai/', iconPath: siClaude.path },
   { name: 'OpenAI', url: 'https://openai.com/' },
   { name: 'AI', url: 'https://en.wikipedia.org/wiki/Artificial_intelligence' },
 ];
@@ -115,7 +124,7 @@ const crypto = [
 ];
 
 const cms = [
-  { name: 'Contentful', url: 'https://www.contentful.com/' },
+  { name: 'Contentful', url: 'https://www.contentful.com/', iconPath: siContentful.path },
 ];
 
 const podcasts = [
@@ -153,7 +162,9 @@ const podcasts = [
             rel="noopener noreferrer"
             class="section-card inline-flex items-center gap-2 px-6 py-3 hover:scale-105 transform"
           >
-            <span class="text-2xl">{link.icon}</span>
+            <svg viewBox="0 0 24 24" class="w-5 h-5" fill="currentColor">
+              <path d={link.iconPath}/>
+            </svg>
             <span class="font-medium">{link.name}</span>
           </a>
         ))}
@@ -196,7 +207,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {cloud.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -210,7 +226,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {api.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -224,7 +245,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {code.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -238,7 +264,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {frontend.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -252,7 +283,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {frameworks.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -266,7 +302,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {databases.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -280,7 +321,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {ai.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -322,7 +368,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {cms.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
@@ -339,7 +390,12 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {interests.map((item) => (
-              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip inline-flex items-center gap-2">
+                {item.iconPath && (
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="currentColor">
+                    <path d={item.iconPath}/>
+                  </svg>
+                )}
                 {item.name}
               </a>
             ))}
