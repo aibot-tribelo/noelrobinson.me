@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://noelrobinson.github.io',
+  site: 'https://aibot-tribelo.github.io',
   base: '/noelrobinson.me',
   vite: {
     plugins: [tailwindcss()]
