@@ -1,17 +1,340 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+const socialLinks = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/noelarobinson/', icon: '💼' },
+  { name: 'GitHub', url: 'https://github.com/noelrobinson', icon: '🔧' },
+  { name: 'Twitter', url: 'https://twitter.com/noelrobinson', icon: '🐦' },
+  { name: 'Instagram', url: 'https://www.instagram.com/noelarobinson/', icon: '📸' },
+  { name: 'Spotify', url: 'https://open.spotify.com/user/1127314265', icon: '🎵' },
+];
+
+const books = [
+  { name: 'Accelerate', url: 'https://amzn.to/2PrG24M' },
+  { name: 'Multipliers', url: 'https://amzn.to/31lNjFK' },
+  { name: 'Turn the Ship Around!', url: 'https://amzn.to/3cIUzSJ' },
+  { name: 'Clean Code', url: 'https://amzn.to/2Qy1fua' },
+  { name: 'Clean Agile', url: 'https://amzn.to/3w2ibta' },
+  { name: 'Building Evolutionary Architecture', url: 'https://amzn.to/3fdPeVb' },
+  { name: 'Domain Driven Design', url: 'https://amzn.to/3ssoFPJ' },
+  { name: 'Refactoring', url: 'https://amzn.to/3fiV5sq' },
+  { name: 'Continuous Delivery', url: 'https://amzn.to/3foWOw2' },
+  { name: 'Chasing Excellence', url: 'https://amzn.to/2R2Eb7n' },
+  { name: 'How Champions Think', url: 'https://amazon.co.uk/gp/product/1476788642' },
+  { name: 'Blockchain Revolution', url: 'https://amazon.co.uk/gp/product/1101980141' },
+];
+
+const leadership = [
+  { name: 'Agile', url: 'https://agilemanifesto.org/' },
+  { name: 'DevOps', url: 'https://aws.amazon.com/devops/what-is-devops/' },
+  { name: 'Meetup', url: 'https://www.meetup.com/members/31470592/' },
+];
+
+const cloud = [
+  { name: 'FluxCD', url: 'https://fluxcd.io/' },
+  { name: 'CNCF', url: 'https://www.cncf.io/' },
+  { name: 'AWS', url: 'https://aws.amazon.com/' },
+  { name: 'Lambda', url: 'https://aws.amazon.com/lambda/' },
+  { name: 'AWS Amplify', url: 'https://aws.amazon.com/amplify/' },
+  { name: 'Azure', url: 'https://azure.microsoft.com/' },
+  { name: 'Kubernetes', url: 'https://kubernetes.io/' },
+  { name: 'Fastly', url: 'https://www.fastly.com/' },
+];
+
+const api = [
+  { name: 'REST', url: 'https://restfulapi.net/' },
+  { name: 'GraphQL', url: 'https://graphql.org/' },
+];
+
+const code = [
+  { name: 'Docker', url: 'https://www.docker.com/' },
+  { name: 'Kotlin', url: 'https://kotlinlang.org/' },
+  { name: 'Java', url: 'https://docs.oracle.com/javase/' },
+  { name: 'JavaScript', url: 'https://www.javascript.com/' },
+  { name: 'TypeScript', url: 'https://www.typescriptlang.org/' },
+  { name: 'GitHub', url: 'https://github.com/noelrobinson' },
+];
+
+const frontend = [
+  { name: 'Vue.js', url: 'https://vuejs.org/' },
+  { name: 'React', url: 'https://reactjs.org/' },
+  { name: 'Next.js', url: 'https://nextjs.org/' },
+  { name: 'Gatsby', url: 'https://www.gatsbyjs.com/' },
+  { name: 'HUGO', url: 'https://gohugo.io/' },
+];
+
+const frameworks = [
+  { name: 'Micro Front Ends', url: '#' },
+  { name: 'Module Federation', url: 'https://webpack.js.org/concepts/module-federation/' },
+  { name: 'Micronaut', url: 'https://micronaut.io/' },
+  { name: 'Spring', url: 'https://spring.io/' },
+];
+
+const databases = [
+  { name: 'Elasticsearch', url: 'https://www.elastic.co/elasticsearch/' },
+  { name: 'MongoDB', url: 'https://www.mongodb.com/' },
+  { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+  { name: 'DynamoDB', url: 'https://aws.amazon.com/dynamodb/' },
+];
+
+const interests = [
+  { name: 'SmartThings', url: 'https://www.smartthings.com/' },
+  { name: 'eWeLink', url: 'https://www.ewelink.cc/' },
+];
+
+const health = [
+  { name: 'Revival Strength', url: 'https://revival-strength.com/' },
+  { name: 'Truecoach', url: 'https://app.truecoach.co/' },
+  { name: 'Strike Fitness', url: '#' },
+  { name: 'BattleGround Fitness', url: 'https://www.mybattleground.co.uk/' },
+  { name: 'CrossFit Bath', url: 'https://crossfitbath.com/' },
+];
+
+const family = [
+  { name: 'Stotherts Rugby', url: 'https://www.pitchero.com/clubs/stothertpitt/' },
+  { name: 'Downs Syndrome', url: 'https://www.downs-syndrome.org.uk/' },
+  { name: 'Helens Kitchen', url: 'https://helens.kitchen' },
+  { name: 'Mangia Bene', url: 'http://mangiabenebath.uk' },
+  { name: 'Lyme Regis', url: 'http://www.lymeregis.org/' },
+];
+
+const podcasts = [
+  { name: 'InfoQ', url: '#' },
+  { name: 'ThoughtWorks', url: '#' },
+  { name: 'Software Engineering Daily', url: '#' },
+  { name: 'Fintech Insider', url: '#' },
+  { name: 'The Cloudcast', url: '#' },
+  { name: 'Simple Leadership', url: '#' },
+  { name: 'Views on Vue', url: '#' },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Noel Robinson - Tech Leader & Software Architect">
+  <main class="container mx-auto px-4 py-16 max-w-6xl">
+    <!-- Hero Section -->
+    <section class="mb-20 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent animate-fade-in">
+        Noel Robinson
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto">
+        Tech Leader, Engineering Manager & Software Architect
+      </p>
+      <p class="text-lg text-gray-500 max-w-2xl mx-auto mb-12">
+        Passionate about building high-performing teams, cloud-native architectures, and modern web technologies.
+        Advocate for DevOps practices, continuous delivery, and evolutionary architecture.
+      </p>
+      
+      <!-- Social Links -->
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        {socialLinks.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="section-card inline-flex items-center gap-2 px-6 py-3 hover:scale-105 transform"
+          >
+            <span class="text-2xl">{link.icon}</span>
+            <span class="font-medium">{link.name}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Books Section -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-blue-400">📚 Recommended Books</h2>
+      <div class="section-card">
+        <div class="flex flex-wrap gap-3">
+          {books.map((item) => (
+            <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership & Growth -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-purple-400">🚀 Leadership & Growth</h2>
+      <div class="section-card">
+        <div class="flex flex-wrap gap-3">
+          {leadership.map((item) => (
+            <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Stack Grid -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <!-- Cloud -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-cyan-400">☁️ Cloud & Infrastructure</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {cloud.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- API -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-green-400">🔌 API Design</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {api.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Code -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-yellow-400">💻 Languages & Tools</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {code.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Frontend -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-pink-400">🎨 Frontend Frameworks</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {frontend.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Frameworks -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-orange-400">🏗️ Frameworks & Architecture</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {frameworks.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Databases -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-400">🗄️ Databases</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {databases.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Personal Interests Grid -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <!-- Interests -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-indigo-400">🏠 Smart Home</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {interests.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Health -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-emerald-400">💪 Health & Fitness</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {health.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Family -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-rose-400">👨‍👩‍👧‍👦 Family & Community</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {family.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Podcasts -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-violet-400">🎧 Listening To</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {podcasts.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 pt-12 border-t border-gray-800">
+      <p class="mb-2">Built with Astro & Tailwind CSS</p>
+      <p>&copy; {new Date().getFullYear()} Noel Robinson</p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
+  }
+</style>

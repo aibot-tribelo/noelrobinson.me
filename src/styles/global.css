@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-gray-950 text-gray-100;
+}
+
+.section-card {
+  @apply bg-gray-900 rounded-lg p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300;
+}
+
+.tech-chip {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-sm bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-600 transition-all duration-200;
+}
