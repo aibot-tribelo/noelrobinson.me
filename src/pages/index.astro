@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 const socialLinks = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/noelarobinson/', icon: '💼' },
   { name: 'GitHub', url: 'https://github.com/noelrobinson', icon: '🔧' },
-  { name: 'Twitter', url: 'https://twitter.com/noelrobinson', icon: '🐦' },
+  { name: 'X', url: 'https://x.com/noelrobinson', icon: '𝕏' },
   { name: 'Instagram', url: 'https://www.instagram.com/noelarobinson/', icon: '📸' },
   { name: 'Spotify', url: 'https://open.spotify.com/user/1127314265', icon: '🎵' },
 ];
@@ -78,6 +78,7 @@ const databases = [
 ];
 
 const interests = [
+  { name: 'Home Assistant', url: 'https://www.home-assistant.io/' },
   { name: 'SmartThings', url: 'https://www.smartthings.com/' },
   { name: 'eWeLink', url: 'https://www.ewelink.cc/' },
 ];
@@ -96,6 +97,25 @@ const family = [
   { name: 'Helens Kitchen', url: 'https://helens.kitchen' },
   { name: 'Mangia Bene', url: 'http://mangiabenebath.uk' },
   { name: 'Lyme Regis', url: 'http://www.lymeregis.org/' },
+];
+
+const ai = [
+  { name: 'Claude', url: 'https://claude.ai/' },
+  { name: 'OpenAI', url: 'https://openai.com/' },
+  { name: 'AI', url: 'https://en.wikipedia.org/wiki/Artificial_intelligence' },
+];
+
+const cybersecurity = [
+  { name: 'Cyber Security', url: '#' },
+];
+
+const crypto = [
+  { name: 'Crypto', url: '#' },
+  { name: 'Prediction Markets', url: 'https://polymarket.com/' },
+];
+
+const cms = [
+  { name: 'Contentful', url: 'https://www.contentful.com/' },
 ];
 
 const podcasts = [
@@ -246,6 +266,62 @@ const podcasts = [
         <div class="section-card">
           <div class="flex flex-wrap gap-3">
             {databases.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- AI -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-sky-400">🤖 AI</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {ai.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Cyber Security -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-amber-400">🔒 Cyber Security</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {cybersecurity.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Crypto & Prediction Markets -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-teal-400">📈 Crypto & Prediction Markets</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {crypto.map((item) => (
+              <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CMS -->
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-lime-400">📝 CMS</h2>
+        <div class="section-card">
+          <div class="flex flex-wrap gap-3">
+            {cms.map((item) => (
               <a href={item.url} target="_blank" rel="noopener noreferrer" class="tech-chip">
                 {item.name}
               </a>
