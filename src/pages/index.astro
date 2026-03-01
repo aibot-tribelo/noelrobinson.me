@@ -160,11 +160,11 @@ const lifeGroups = [
     </div>
   </nav>
 
-  <main class="max-w-5xl mx-auto px-6 scroll-smooth">
+  <main id="main-content" class="max-w-5xl mx-auto px-6 scroll-smooth">
 
     <!-- Hero -->
     <section class="pt-32 pb-24 sm:pt-40 sm:pb-32">
-      <p class="text-sm font-medium text-[#666] uppercase tracking-widest mb-4">Tech Leader & Engineer</p>
+      <p class="text-sm font-medium text-[#999] uppercase tracking-widest mb-4">Tech Leader & Engineer</p>
       <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
         Noel Robinson
       </h1>
@@ -173,7 +173,7 @@ const lifeGroups = [
       </p>
       <div class="flex items-center gap-5">
         {social.map(s => (
-          <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-[#666] hover:text-white transition-colors" aria-label={s.name}>
+          <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-[#999] hover:text-white transition-colors" aria-label={s.name}>
             <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
               <path d={s.path}/>
             </svg>
@@ -188,7 +188,7 @@ const lifeGroups = [
       <div class="space-y-10">
         {techGroups.map(group => (
           <div>
-            <h3 class="text-xs font-semibold uppercase tracking-widest text-[#555] mb-4">{group.title}</h3>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-[#999] mb-4">{group.title}</h3>
             <div class="flex flex-wrap gap-2">
               {group.items.map(item => (
                 <a
@@ -222,10 +222,10 @@ const lifeGroups = [
             rel="noopener noreferrer"
             class="group flex items-center gap-3 py-2.5 text-[#999] hover:text-white transition-colors"
           >
-            <span class="w-1 h-1 rounded-full bg-[#444] shrink-0"></span>
+            <span class="w-1 h-1 rounded-full bg-[#888] shrink-0"></span>
             <span class="text-sm font-medium">{p.name}</span>
-            <span class="text-xs text-[#444] hidden sm:inline">— {p.desc}</span>
-            <span class="text-xs text-[#333] group-hover:text-[#666] ml-auto transition-colors">↗</span>
+            <span class="text-xs text-[#888] hidden sm:inline">— {p.desc}</span>
+            <span class="text-xs text-[#333] group-hover:text-[#999] ml-auto transition-colors">↗</span>
           </a>
         ))}
       </div>
@@ -242,9 +242,9 @@ const lifeGroups = [
             rel="noopener noreferrer"
             class="group flex items-center gap-3 py-3 text-[#999] hover:text-white transition-colors"
           >
-            <span class="text-xs text-[#444] font-mono w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+            <span class="text-xs text-[#888] font-mono w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
             <span class="text-sm font-medium">{book.name}</span>
-            <span class="text-xs text-[#333] group-hover:text-[#666] ml-auto transition-colors">↗</span>
+            <span class="text-xs text-[#333] group-hover:text-[#999] ml-auto transition-colors">↗</span>
           </a>
         ))}
       </div>
@@ -273,7 +273,7 @@ const lifeGroups = [
       <div class="grid sm:grid-cols-2 gap-12">
         {lifeGroups.map(group => (
           <div>
-            <h3 class="text-xs font-semibold uppercase tracking-widest text-[#555] mb-4">{group.title}</h3>
+            <h3 class="text-xs font-semibold uppercase tracking-widest text-[#999] mb-4">{group.title}</h3>
             <div class="space-y-2">
               {group.items.map(item => (
                 <a
@@ -287,7 +287,7 @@ const lifeGroups = [
                       <path d={item.p}/>
                     </svg>
                   ) : (
-                    <span class="w-1 h-1 rounded-full bg-[#333] shrink-0"></span>
+                    <span class="w-1 h-1 rounded-full bg-[#666] shrink-0"></span>
                   )}
                   {item.n}
                 </a>
@@ -299,7 +299,7 @@ const lifeGroups = [
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 text-center text-xs text-[#333]">
+    <footer class="py-12 text-center text-xs text-[#888]">
       &copy; {new Date().getFullYear()} Noel Robinson
     </footer>
 
