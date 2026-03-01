@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://noelrobinson.me/sitemap-index.xml
+Sitemap: https://noelrobinson.uk/sitemap-index.xml
