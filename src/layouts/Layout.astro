@@ -1,9 +1,11 @@
 ---
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description = "Noel Robinson — Technology Leader. Building high-performing teams, cloud-native platforms, and AI-powered workflows." } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, 'https://noelrobinson.me');
 import '../styles/global.css';
 ---
 
@@ -11,17 +13,17 @@ import '../styles/global.css';
 <html lang="en" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Noel Robinson — Technology Leader. Building high-performing teams, cloud-native platforms, and AI-powered workflows." />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="canonical" href="https://noelrobinson.me/" />
+		<link rel="canonical" href={canonicalURL.href} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
-		<meta property="og:description" content="Technology Leader. AI orchestration, cloud-native platforms, cyber resilience." />
-		<meta property="og:url" content="https://noelrobinson.me/" />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL.href} />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@noelrobinson" />
 
