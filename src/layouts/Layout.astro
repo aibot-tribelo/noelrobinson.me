@@ -40,6 +40,15 @@ import '../styles/global.css';
 			]
 		})} />
 
+		<!-- GA4 -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SNK3H67PRP"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-SNK3H67PRP');
+		</script>
+
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
