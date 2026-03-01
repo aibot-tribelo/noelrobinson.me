@@ -11,15 +11,14 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Noel Robinson - Tech Leader & Engineer based in the UK" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/noelrobinson.me/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		
-		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<slot />
@@ -28,82 +27,50 @@ const { title } = Astro.props;
 
 <style is:global>
 	:root {
-		--bg-primary: #0a0a0f;
-		--bg-secondary: #14141f;
-		--accent: #00e5ff;
-		--text-primary: #e5e5e5;
-		--text-muted: #9ca3af;
-		--text-dim: #6b7280;
+		--bg: #fafaf8;
+		--bg-alt: #f0efec;
+		--fg: #1a1a1a;
+		--fg-muted: #555;
+		--fg-dim: #888;
+		--accent: #c8442e;
+		--border: #ddd;
 	}
 
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
+	* { box-sizing: border-box; margin: 0; padding: 0; }
 
 	html {
-		font-family: 'DM Sans', system-ui, sans-serif;
-		background: var(--bg-primary);
-		color: var(--text-primary);
+		font-family: 'Outfit', sans-serif;
+		font-weight: 400;
+		background: var(--bg);
+		color: var(--fg);
 		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
 	}
 
 	body {
 		min-height: 100vh;
 		line-height: 1.6;
+		overflow-x: hidden;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
-		font-family: 'Space Grotesk', sans-serif;
-		font-weight: 700;
-		line-height: 1.1;
+	h1, h2, h3 {
+		font-family: 'Instrument Serif', serif;
+		font-weight: 400;
+		line-height: 1.15;
 	}
 
-	a {
-		color: inherit;
-		text-decoration: none;
+	a { color: inherit; text-decoration: none; }
+
+	@keyframes fadeIn {
+		from { opacity: 0; transform: translateY(16px); }
+		to { opacity: 1; transform: translateY(0); }
 	}
 
-	/* Fade-in on scroll animation */
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(30px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.fade-in {
+	.reveal {
 		opacity: 0;
-		animation: fadeInUp 0.8s ease-out forwards;
+		animation: fadeIn 0.6s ease forwards;
 	}
-
-	.delay-1 { animation-delay: 0.1s; }
-	.delay-2 { animation-delay: 0.2s; }
-	.delay-3 { animation-delay: 0.3s; }
-	.delay-4 { animation-delay: 0.4s; }
-	.delay-5 { animation-delay: 0.5s; }
-	.delay-6 { animation-delay: 0.6s; }
-
-	/* Custom scrollbar */
-	::-webkit-scrollbar {
-		width: 8px;
-	}
-
-	::-webkit-scrollbar-track {
-		background: var(--bg-primary);
-	}
-
-	::-webkit-scrollbar-thumb {
-		background: var(--accent);
-		border-radius: 4px;
-	}
-
-	::-webkit-scrollbar-thumb:hover {
-		background: var(--text-muted);
-	}
+	.d1 { animation-delay: 0.1s; }
+	.d2 { animation-delay: 0.2s; }
+	.d3 { animation-delay: 0.3s; }
 </style>
