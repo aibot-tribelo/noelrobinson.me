@@ -160,17 +160,26 @@ const lifeGroups = [
     </div>
   </nav>
 
-  <!-- Mobile Nav (bottom) -->
-  <nav class="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0c0c0c]/95 backdrop-blur-md border-t border-[#1e1e1e]" style="padding-bottom: env(safe-area-inset-bottom)">
-    <div class="flex items-center justify-around h-12">
-      <a href="#tech" class="text-xs text-[#888] hover:text-white transition-colors">Tech</a>
-      <a href="#projects" class="text-xs text-[#888] hover:text-white transition-colors">Projects</a>
-      <a href="#books" class="text-xs text-[#888] hover:text-white transition-colors">Books</a>
-      <a href="#life" class="text-xs text-[#888] hover:text-white transition-colors">Life</a>
+  <!-- Mobile FAB Nav -->
+  <div class="sm:hidden fixed bottom-6 right-6 z-50" style="padding-bottom: env(safe-area-inset-bottom)" id="mobile-nav">
+    <div id="nav-menu" class="hidden flex-col items-end gap-2 mb-3">
+      <a href="#tech" class="nav-pill">Tech</a>
+      <a href="#projects" class="nav-pill">Projects</a>
+      <a href="#books" class="nav-pill">Books</a>
+      <a href="#leadership" class="nav-pill">Leadership</a>
+      <a href="#life" class="nav-pill">Life</a>
     </div>
-  </nav>
+    <button id="nav-toggle" aria-label="Navigation menu" class="w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center shadow-lg shadow-black/40 active:scale-95 transition-transform">
+      <svg id="nav-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-white">
+        <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
+      </svg>
+      <svg id="nav-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5 text-white hidden">
+        <line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/>
+      </svg>
+    </button>
+  </div>
 
-  <main id="main-content" class="max-w-5xl mx-auto px-6 scroll-smooth pb-16 sm:pb-0">
+  <main id="main-content" class="max-w-5xl mx-auto px-6 scroll-smooth">
 
     <!-- Hero -->
     <section class="pt-16 pb-24 sm:pt-40 sm:pb-32">
@@ -314,4 +323,40 @@ const lifeGroups = [
     </footer>
 
   </main>
+<style>
+  .nav-pill {
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ccc;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+  .nav-pill:hover { color: #fff; background: #222; }
+</style>
+
+<script>
+  const toggle = document.getElementById('nav-toggle')!;
+  const menu = document.getElementById('nav-menu')!;
+  const iconOpen = document.getElementById('nav-icon-open')!;
+  const iconClose = document.getElementById('nav-icon-close')!;
+
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+    iconOpen.classList.toggle('hidden');
+    iconClose.classList.toggle('hidden');
+  });
+
+  menu.addEventListener('click', () => {
+    menu.classList.add('hidden');
+    menu.classList.remove('flex');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  });
+</script>
 </Layout>
