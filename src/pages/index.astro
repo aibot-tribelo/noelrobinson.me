@@ -188,8 +188,20 @@ const navItems = [
         <div class="max-w-lg">
           <p class="font-['JetBrains_Mono'] text-accent text-xs uppercase tracking-[0.2em] mb-3">Technology Leader</p>
           <p class="text-text-muted text-base leading-relaxed font-['Inter']">
-            Building what's next — AI agents, cloud platforms, and products that ship. 25 years of making complex things work.
+            I've been automating and streamlining business processes through technology since the beginning — first with enterprise systems, then cloud-native platforms, now AI orchestration. The tools keep changing. The obsession doesn't.
           </p>
+          <div class="mt-6 space-y-2">
+            {[
+              { label: '2000s', desc: 'Billing systems, IVR, SOA — removing human bottlenecks at scale' },
+              { label: '2010s', desc: 'Cloud-native platforms, microservices, GitOps — shipping faster' },
+              { label: 'Now', desc: 'AI agents that think, act, and orchestrate — the next leap' },
+            ].map(({ label, desc }) => (
+              <div class="flex items-baseline gap-3">
+                <span class="font-['JetBrains_Mono'] text-xs text-accent shrink-0 w-12">{label}</span>
+                <span class="text-sm text-text-muted font-['Inter']">{desc}</span>
+              </div>
+            ))}
+          </div>
         </div>
         <div class="flex gap-10">
           {[{ v: '25+', l: 'Years' }, { v: '9', l: 'Products' }, { v: '∞', l: 'Curiosity' }].map(s => (
