@@ -1,11 +1,341 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #050505;
-  --color-bg-elevated: #0e0e0e;
-  --color-surface: #161616;
-  --color-accent: #e8ff47;
-  --color-text: #d4d4d4;
-  --color-text-muted: #8a8a8a;
-  --color-border: #222;
+  --color-bg: #0a0a0f;
+  --color-bg-elevated: #111118;
+  --color-surface: #16161f;
+  --color-surface-light: #1e1e2a;
+  --color-accent: #6366f1;
+  --color-accent-dim: #6366f120;
+  --color-accent-muted: #6366f140;
+  --color-accent-2: #06b6d4;
+  --color-accent-3: #8b5cf6;
+  --color-text: #f0f0f5;
+  --color-text-muted: #8888a0;
+  --color-text-faint: #727288;
+  --color-border: #1a1a22;
+  --color-border-light: #2a2a35;
+  --color-glass: #ffffff0d;
+  --color-glass-border: #ffffff14;
+  --color-glass-hover: #ffffff18;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-light);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-muted);
+}
+
+/* ── Keyframes ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes typing-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes timeline-fill {
+  from { height: 0%; }
+  to { height: var(--fill-height, 100%); }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -40px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(15px, 30px) scale(1.02);
+  }
+}
+
+@keyframes gradient-rotate {
+  0% { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@keyframes dot-grid-fade {
+  from { opacity: 0; }
+  to { opacity: 0.3; }
+}
+
+/* ── Dot Grid Background ── */
+.dot-grid-bg {
+  background-image: radial-gradient(circle, var(--color-text-faint) 1px, transparent 1px);
+  background-size: 32px 32px;
+  animation: dot-grid-fade 1.5s ease forwards;
+}
+
+/* ── Gradient Orbs ── */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  animation: float 20s ease-in-out infinite, glow-pulse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.gradient-orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  opacity: 0.15;
+  top: -10%;
+  right: -5%;
+  animation-delay: 0s;
+}
+
+.gradient-orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-accent-2) 0%, transparent 70%);
+  opacity: 0.12;
+  bottom: 10%;
+  left: -10%;
+  animation-delay: -7s;
+}
+
+.gradient-orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--color-accent-3) 0%, transparent 70%);
+  opacity: 0.1;
+  top: 40%;
+  right: 20%;
+  animation-delay: -14s;
+}
+
+/* ── Glass Card ── */
+.glass-card {
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: var(--color-glass-hover);
+  border-color: rgba(99, 102, 241, 0.2);
+  box-shadow: 0 0 30px var(--color-accent-dim), inset 0 0 30px #ffffff05;
+}
+
+/* ── Gradient Border ── */
+.gradient-border {
+  position: relative;
+  background: var(--color-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 12px;
+  border: 1px solid var(--color-glass-border);
+  transition: all 0.3s ease;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 13px;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--gradient-angle, 0deg),
+    transparent 30%,
+    var(--color-accent) 40%,
+    var(--color-accent-2) 50%,
+    var(--color-accent-3) 60%,
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+  animation: gradient-rotate 3s linear infinite;
+}
+
+.gradient-border:hover {
+  box-shadow: 0 0 40px var(--color-accent-dim);
+}
+
+/* ── Text Gradient ── */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Typing Effect ── */
+.typing-cursor::after {
+  content: '|';
+  color: var(--color-accent);
+  animation: typing-blink 0.8s step-end infinite;
+  margin-left: 2px;
+  font-weight: 300;
+}
+
+/* ── Scroll Reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-stagger.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Bounce Down (Scroll Indicator) ── */
+.bounce-down {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+/* ── Timeline ── */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-border-light);
+  transform: translateX(-50%);
+}
+
+.timeline-line-fill {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 0%;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+  transition: height 0.1s linear;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--color-border-light);
+  transform: translate(-50%, -50%);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.timeline-dot.active {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent-muted);
+}
+
+/* Mobile timeline */
+@media (max-width: 767px) {
+  .timeline-line,
+  .timeline-line-fill {
+    left: 16px;
+  }
+  .timeline-dot {
+    left: 16px;
+  }
+}
+
+/* ── Glow Hover (for social links etc.) ── */
+.glow-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-hover:hover {
+  color: var(--color-accent);
+  filter: drop-shadow(0 0 8px var(--color-accent-muted));
+}
+
+/* ── Smooth body ── */
+html {
+  scrollbar-color: var(--color-border-light) var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── @property for animated gradient angle ── */
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }

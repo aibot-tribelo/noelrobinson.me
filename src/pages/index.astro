@@ -161,87 +161,127 @@ const navItems = [
   { label: 'Life', href: '#life' },
   { label: 'CV', href: '/cv' },
 ];
+
+const experienceItems = [
+  { role: 'Founder & Technology Consultant', co: 'Tribelo', period: '2019 — Present' },
+  { role: 'Principal Developer', co: 'National Trust', period: '2014 — 2019' },
+  { role: 'Senior Agile Java Developer', co: 'Which?', period: '2012 — 2014' },
+  { role: 'Java Designer / Developer', co: 'Virgin Media', period: '2000 — 2011' },
+];
+
+const heroTimeline = [
+  { label: '2000s', desc: 'Billing systems, IVR, SOA — removing human bottlenecks at scale' },
+  { label: '2010s', desc: 'Cloud-native platforms, microservices, GitOps — shipping faster' },
+  { label: 'Now', desc: 'AI agents that think, act, and orchestrate — the next leap' },
+];
 ---
 
-<Layout title="Noel Robinson">
+<Layout title="Noel Robinson — Technology Leader, AI Architect & Builder">
+<main id="main">
 
-  <!-- HERO -->
-  <main id="main">
-  <section class="relative bg-bg overflow-hidden">
-
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-bg/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
-        <a href="#" class="font-['Bebas_Neue'] text-white text-2xl tracking-wide">NR</a>
-        <div class="hidden sm:flex items-center gap-8">
-          {navItems.map(n => (
-            <a href={n.href} class="text-xs font-['JetBrains_Mono'] text-white uppercase tracking-widest hover:text-accent transition-colors">{n.label}</a>
-          ))}
-        </div>
+  <!-- ═══════════════════════ NAVIGATION ═══════════════════════ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 glass-card !rounded-none !border-x-0 !border-t-0 border-b border-glass-border bg-bg/70 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
+      <a href="#" class="font-['Space_Grotesk'] text-white text-xl font-bold tracking-tight">NR</a>
+      <div class="hidden sm:flex items-center gap-8">
+        {navItems.map(n => (
+          <a href={n.href} class="nav-link text-xs font-['JetBrains_Mono'] text-text-muted uppercase tracking-widest hover:text-accent transition-colors relative">
+            {n.label}
+          </a>
+        ))}
       </div>
-    </nav>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section id="hero" class="relative min-h-screen bg-bg overflow-hidden flex items-center">
+    <!-- Dot Grid Background -->
+    <div class="absolute inset-0 dot-grid-bg"></div>
+
+    <!-- Gradient Orbs -->
+    <div class="gradient-orb gradient-orb-1" data-parallax="0.03"></div>
+    <div class="gradient-orb gradient-orb-2" data-parallax="0.05"></div>
+    <div class="gradient-orb gradient-orb-3" data-parallax="0.04"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 pt-24 sm:pt-32 pb-16 sm:pb-24 w-full">
-      <h1 class="font-['Bebas_Neue'] text-[clamp(3.5rem,12vw,10rem)] leading-[0.85] text-white mb-6 tracking-tight">
+      <!-- Name -->
+      <h1 class="font-['Space_Grotesk'] text-[clamp(3.5rem,11vw,9rem)] leading-[0.9] font-bold mb-6 tracking-tight text-gradient">
         Noel<br/>Robinson
       </h1>
-      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+
+      <!-- Subtitle with typing effect -->
+      <p id="typing-subtitle" class="font-['JetBrains_Mono'] text-accent text-sm uppercase tracking-[0.25em] mb-8 typing-cursor">
+        <span id="typing-text"></span>
+      </p>
+
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+        <!-- Description + Timeline -->
         <div class="max-w-lg">
-          <p class="font-['JetBrains_Mono'] text-accent text-xs uppercase tracking-[0.2em] mb-3">Technology Leader</p>
-          <p class="text-text-muted text-base leading-relaxed font-['Inter']">
+          <p class="text-text-muted text-base leading-relaxed font-['Inter'] mb-8">
             I've been automating and streamlining business processes through technology since the beginning — first with enterprise systems, then cloud-native platforms, now AI orchestration. The tools keep changing. The obsession doesn't.
           </p>
-          <div class="mt-6 space-y-2">
-            {[
-              { label: '2000s', desc: 'Billing systems, IVR, SOA — removing human bottlenecks at scale' },
-              { label: '2010s', desc: 'Cloud-native platforms, microservices, GitOps — shipping faster' },
-              { label: 'Now', desc: 'AI agents that think, act, and orchestrate — the next leap' },
-            ].map(({ label, desc }) => (
-              <div class="flex items-baseline gap-3">
-                <span class="font-['JetBrains_Mono'] text-xs text-accent shrink-0 w-12">{label}</span>
+
+          <!-- Hero Timeline (vertical with fill line) -->
+          <div id="hero-timeline" class="relative pl-8 space-y-4">
+            <div class="absolute left-[7px] top-1 bottom-1 w-[2px] bg-border-light"></div>
+            <div id="hero-timeline-fill" class="absolute left-[7px] top-1 w-[2px] bg-accent transition-all duration-300" style="height: 0%"></div>
+            {heroTimeline.map(({ label, desc }, i) => (
+              <div class="relative flex items-baseline gap-4">
+                <div class="absolute left-[-25px] top-[6px] w-[10px] h-[10px] rounded-full border-2 border-border-light bg-bg z-10 hero-timeline-dot" data-index={i}></div>
+                <span class="font-['JetBrains_Mono'] text-xs text-accent shrink-0 w-12 font-medium">{label}</span>
                 <span class="text-sm text-text-muted font-['Inter']">{desc}</span>
               </div>
             ))}
           </div>
         </div>
-        <div class="flex gap-10">
-          {[{ v: '25+', l: 'Years' }, { v: '9', l: 'Products' }, { v: '∞', l: 'Curiosity' }].map(s => (
-            <div class="text-center">
-              <div class="font-['Bebas_Neue'] text-3xl sm:text-4xl text-white">{s.v}</div>
-              <div class="font-['JetBrains_Mono'] text-xs text-text-muted uppercase tracking-widest">{s.l}</div>
+
+        <!-- Stats Cards -->
+        <div class="flex gap-6">
+          {[{ v: '25+', l: 'Years' }, { v: '9', l: 'Products' }, { v: '\u221E', l: 'Curiosity' }].map(s => (
+            <div class="glass-card px-6 py-5 text-center min-w-[90px]">
+              <div class="font-['Space_Grotesk'] text-3xl sm:text-4xl text-white font-bold">{s.v}</div>
+              <div class="font-['JetBrains_Mono'] text-xs text-text-muted uppercase tracking-widest mt-1">{s.l}</div>
             </div>
           ))}
         </div>
       </div>
-      <div class="flex items-center gap-5 mt-10 pt-8 border-t border-border">
+
+      <!-- Social Links -->
+      <div class="flex items-center gap-5 mt-12 pt-8 border-t border-border-light/30">
         {social.map(s => (
-          <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-accent transition-colors" aria-label={s.name}>
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d={s.path}/></svg>
+          <a href={s.url} target="_blank" rel="noopener noreferrer" class="glow-hover text-text-muted" aria-label={s.name}>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d={s.path}/></svg>
           </a>
         ))}
-        <span class="ml-auto font-['JetBrains_Mono'] text-xs text-text-muted tracking-widest hidden sm:block">SCROLL ↓</span>
+        <span class="ml-auto font-['JetBrains_Mono'] text-xs text-text-faint tracking-widest hidden sm:flex items-center gap-2">
+          SCROLL
+          <span class="bounce-down inline-block">&#x2193;</span>
+        </span>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-accent/40 to-transparent"></div>
+
+    <!-- Bottom gradient line -->
+    <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
   </section>
 
-  <!-- TECH STACK -->
+  <!-- ═══════════════════════ TECH STACK ═══════════════════════ -->
   <section id="tech" class="bg-bg py-24 sm:py-32 scroll-mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex items-center gap-4 mb-16">
+      <div class="reveal flex items-center gap-4 mb-16">
         <span class="font-['JetBrains_Mono'] text-accent text-xs tracking-[0.2em]">01</span>
-        <div class="flex-1 h-px bg-border"></div>
-        <h2 class="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide">Tech Stack</h2>
+        <div class="flex-1 h-px bg-border-light"></div>
+        <h2 class="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold text-gradient tracking-tight">Tech Stack</h2>
       </div>
 
-      <div class="space-y-10">
-        {techGroups.map(group => (
-          <div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {techGroups.map((group, gi) => (
+          <div class="reveal-stagger gradient-border p-6" style={`transition-delay: ${gi * 80}ms`}>
             <h3 class="font-['JetBrains_Mono'] text-xs text-accent uppercase tracking-widest mb-4">{group.title}</h3>
             <div class="flex flex-wrap gap-2">
               {group.items.map(item => (
                 <a href={item.u} target="_blank" rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 px-3.5 py-2 text-sm text-text bg-surface rounded-sm hover:bg-bg-elevated hover:text-accent border border-transparent hover:border-accent/20 transition-all font-['Inter']">
-                  {item.p && <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 opacity-50"><path d={item.p}/></svg>}
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs text-text-muted bg-surface/50 rounded-full hover:bg-surface-light hover:text-accent border border-border/50 hover:border-accent/30 transition-all font-['Inter']">
+                  {item.p && <svg viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3 opacity-40" aria-hidden="true"><path d={item.p}/></svg>}
                   {item.n}
                 </a>
               ))}
@@ -252,96 +292,147 @@ const navItems = [
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- ═══════════════════════ PROJECTS (BENTO GRID) ═══════════════════════ -->
   <section id="projects" class="bg-bg-elevated py-24 sm:py-32 scroll-mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex items-center gap-4 mb-16">
+      <div class="reveal flex items-center gap-4 mb-16">
         <span class="font-['JetBrains_Mono'] text-accent text-xs tracking-[0.2em]">02</span>
-        <div class="flex-1 h-px bg-border"></div>
-        <h2 class="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide">Projects</h2>
+        <div class="flex-1 h-px bg-border-light"></div>
+        <h2 class="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold text-gradient tracking-tight">Projects</h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {projects.map(p => (
-          <a href={p.url} target="_blank" rel="noopener noreferrer"
-             class="group p-6 bg-bg rounded-sm border border-transparent hover:border-accent/20 transition-all">
-            <span class="font-['JetBrains_Mono'] text-xs text-accent uppercase tracking-widest block mb-2">{p.tag}</span>
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-semibold text-white font-['Inter'] group-hover:text-accent transition-colors">{p.name}</h3>
-              <span class="text-text-muted group-hover:text-accent transition-colors text-sm">↗</span>
-            </div>
-          </a>
-        ))}
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[140px] gap-4">
+        {projects.map((p, i) => {
+          const isFeatured = i === 0;
+          return (
+            <a href={p.url} target="_blank" rel="noopener noreferrer"
+               class:list={[
+                 'reveal-stagger group gradient-border p-6 flex flex-col justify-between relative overflow-hidden',
+                 isFeatured ? 'sm:col-span-2 sm:row-span-2' : ''
+               ]}
+               style={`transition-delay: ${i * 60}ms`}>
+              {/* Featured card gradient bg */}
+              {isFeatured && (
+                <div class="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-blue-500/5 pointer-events-none"></div>
+              )}
+              <div class="relative z-10">
+                <span class="font-['JetBrains_Mono'] text-xs text-accent uppercase tracking-widest block mb-2 opacity-70">{p.tag}</span>
+                <h3 class:list={[
+                  "font-['Space_Grotesk'] font-semibold text-white group-hover:text-accent transition-colors",
+                  isFeatured ? 'text-2xl sm:text-3xl' : 'text-base'
+                ]}>{p.name}</h3>
+                {isFeatured && (
+                  <p class="text-text-muted text-sm mt-3 font-['Inter'] max-w-sm">
+                    Aggregating live streams across all gaming categories. The flagship product in the streaming ecosystem.
+                  </p>
+                )}
+              </div>
+              <div class="relative z-10 flex items-center justify-between mt-auto">
+                <span class="inline-block px-2.5 py-1 text-xs font-['JetBrains_Mono'] text-text-faint bg-surface/40 rounded-full uppercase tracking-wider">{p.tag}</span>
+                <span class="text-text-muted group-hover:text-accent transition-colors text-sm">&#x2197;</span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
 
-  <!-- BOOKS -->
+  <!-- ═══════════════════════ BOOKSHELF ═══════════════════════ -->
   <section id="books" class="bg-bg py-24 sm:py-32 scroll-mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex items-center gap-4 mb-16">
+      <div class="reveal flex items-center gap-4 mb-16">
         <span class="font-['JetBrains_Mono'] text-accent text-xs tracking-[0.2em]">03</span>
-        <div class="flex-1 h-px bg-border"></div>
-        <h2 class="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide">Bookshelf</h2>
+        <div class="flex-1 h-px bg-border-light"></div>
+        <h2 class="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold text-gradient tracking-tight">Bookshelf</h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-0 divide-y divide-border sm:divide-y-0">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {books.map((book, i) => (
           <a href={book.url} target="_blank" rel="noopener noreferrer"
-             class="group flex items-center gap-3 py-3.5 border-b border-border hover:pl-2 transition-all">
-            <span class="font-['JetBrains_Mono'] text-xs text-text-muted w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+             class="reveal-stagger group glass-card flex items-center gap-4 px-5 py-4 hover:border-accent/20"
+             style={`transition-delay: ${i * 50}ms`}>
+            <span class="font-['JetBrains_Mono'] text-xs text-text-faint w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
             <span class="text-sm font-medium text-text group-hover:text-accent transition-colors font-['Inter'] flex-1">{book.name}</span>
-            <span class="text-xs text-text-muted group-hover:text-accent transition-colors">↗</span>
+            <span class="text-xs text-text-muted group-hover:text-accent transition-colors">&#x2197;</span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
-  <section class="bg-bg-elevated py-24 sm:py-32 scroll-mt-16">
+  <!-- ═══════════════════════ EXPERIENCE (ALTERNATING TIMELINE) ═══════════════════════ -->
+  <section id="experience" class="bg-bg-elevated py-24 sm:py-32 scroll-mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex items-center gap-4 mb-16">
+      <div class="reveal flex items-center gap-4 mb-16">
         <span class="font-['JetBrains_Mono'] text-accent text-xs tracking-[0.2em]">04</span>
-        <div class="flex-1 h-px bg-border"></div>
-        <h2 class="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide">Experience</h2>
+        <div class="flex-1 h-px bg-border-light"></div>
+        <h2 class="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold text-gradient tracking-tight">Experience</h2>
       </div>
 
-      <div class="divide-y divide-border">
-        {[
-          { role: 'Founder & Technology Consultant', co: 'Tribelo', period: '2019 — Present' },
-          { role: 'Principal Developer', co: 'National Trust', period: '2014 — 2019' },
-          { role: 'Senior Agile Java Developer', co: 'Which?', period: '2012 — 2014' },
-          { role: 'Java Designer / Developer', co: 'Virgin Media', period: '2000 — 2011' },
-        ].map(job => (
-          <a href="/cv" class="group flex flex-col sm:flex-row sm:items-center justify-between py-8 hover:pl-4 transition-all">
-            <div>
-              <h3 class="text-lg font-semibold text-white font-['Inter'] group-hover:text-accent transition-colors">{job.role}</h3>
-              <p class="text-sm text-text-muted font-['Inter'] mt-1">{job.co}</p>
-            </div>
-            <span class="font-['JetBrains_Mono'] text-xs text-text-muted mt-2 sm:mt-0">{job.period}</span>
-          </a>
-        ))}
+      <!-- Alternating Timeline -->
+      <div id="exp-timeline" class="relative">
+        <!-- Timeline center line (desktop) / left line (mobile) -->
+        <div class="timeline-line"></div>
+        <div id="exp-timeline-fill" class="timeline-line-fill"></div>
+
+        <div class="space-y-12 md:space-y-16">
+          {experienceItems.map((job, i) => {
+            const isLeft = i % 2 === 0;
+            return (
+              <div class="reveal-stagger relative" style={`transition-delay: ${i * 100}ms`}>
+                <!-- Timeline dot -->
+                <div class="timeline-dot" style={`top: 28px`} data-timeline-dot></div>
+
+                <!-- Card -->
+                <a href="/cv" class:list={[
+                  'group block glass-card p-6 relative',
+                  'md:w-[calc(50%-32px)]',
+                  isLeft ? 'md:mr-auto' : 'md:ml-auto',
+                  'ml-10 md:ml-auto',
+                ]}>
+                  {/* Connector line to dot on desktop */}
+                  <div class:list={[
+                    'hidden md:block absolute top-7 w-6 h-[2px] bg-border-light',
+                    isLeft ? 'right-[-25px]' : 'left-[-25px]',
+                  ]}></div>
+                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                    <div>
+                      <h3 class="text-base font-semibold text-white font-['Space_Grotesk'] group-hover:text-accent transition-colors">{job.role}</h3>
+                      <p class="text-sm text-text-muted font-['Inter'] mt-1">{job.co}</p>
+                    </div>
+                    <span class="font-['JetBrains_Mono'] text-xs text-text-faint shrink-0">{job.period}</span>
+                  </div>
+                </a>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div class="mt-10 text-right">
-        <a href="/cv" class="font-['JetBrains_Mono'] text-xs text-accent hover:text-white transition-colors tracking-widest uppercase">Full CV →</a>
+
+      <div class="mt-12 text-center">
+        <a href="/cv" class="inline-block glass-card px-6 py-3 font-['JetBrains_Mono'] text-xs text-accent hover:text-white transition-colors tracking-widest uppercase glow-hover">
+          Full CV &#x2192;
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- LEADERSHIP -->
+  <!-- ═══════════════════════ LEADERSHIP ═══════════════════════ -->
   <section class="bg-bg py-24 sm:py-32 scroll-mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex items-center gap-4 mb-16">
+      <div class="reveal flex items-center gap-4 mb-16">
         <span class="font-['JetBrains_Mono'] text-accent text-xs tracking-[0.2em]">05</span>
-        <div class="flex-1 h-px bg-border"></div>
-        <h2 class="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide">Leadership</h2>
+        <div class="flex-1 h-px bg-border-light"></div>
+        <h2 class="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold text-gradient tracking-tight">Leadership</h2>
       </div>
 
       <div class="flex flex-wrap gap-3">
-        {leadership.map(item => (
+        {leadership.map((item, i) => (
           <a href={item.url} target="_blank" rel="noopener noreferrer"
-             class="px-5 py-2.5 text-sm font-medium text-text bg-surface rounded-sm hover:bg-bg-elevated hover:text-accent border border-transparent hover:border-accent/20 transition-all font-['Inter']">
+             class="reveal-stagger glass-card px-6 py-3 text-sm font-medium text-text hover:text-accent transition-all font-['Inter'] glow-hover"
+             style={`transition-delay: ${i * 80}ms`}>
             {item.name}
           </a>
         ))}
@@ -349,27 +440,27 @@ const navItems = [
     </div>
   </section>
 
-  <!-- LIFE -->
+  <!-- ═══════════════════════ BEYOND CODE ═══════════════════════ -->
   <section id="life" class="bg-bg-elevated py-24 sm:py-32 scroll-mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10">
-      <div class="flex items-center gap-4 mb-16">
+      <div class="reveal flex items-center gap-4 mb-16">
         <span class="font-['JetBrains_Mono'] text-accent text-xs tracking-[0.2em]">06</span>
-        <div class="flex-1 h-px bg-border"></div>
-        <h2 class="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wide">Beyond Code</h2>
+        <div class="flex-1 h-px bg-border-light"></div>
+        <h2 class="font-['Space_Grotesk'] text-4xl sm:text-5xl font-bold text-gradient tracking-tight">Beyond Code</h2>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
-        {lifeGroups.map(group => (
-          <div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {lifeGroups.map((group, gi) => (
+          <div class="reveal-stagger gradient-border p-6" style={`transition-delay: ${gi * 80}ms`}>
             <h3 class="font-['JetBrains_Mono'] text-xs text-accent uppercase tracking-widest mb-4">{group.title}</h3>
             <div class="space-y-2">
               {group.items.map(item => (
                 <a href={item.u} target="_blank" rel="noopener noreferrer"
-                   class="flex items-center gap-2.5 text-sm text-text-muted hover:text-accent transition-colors font-['Inter'] py-0.5">
+                   class="flex items-center gap-2.5 text-sm text-text-muted hover:text-accent transition-colors font-['Inter'] py-1 glow-hover">
                   {item.p ? (
-                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 opacity-40"><path d={item.p}/></svg>
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5 opacity-40" aria-hidden="true"><path d={item.p}/></svg>
                   ) : (
-                    <span class="w-1 h-1 rounded-full bg-accent/30 shrink-0"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent/20 shrink-0"></span>
                   )}
                   {item.n}
                 </a>
@@ -381,29 +472,30 @@ const navItems = [
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-bg border-t border-border py-12">
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="bg-bg py-12 relative">
+    <div class="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
     <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <span class="font-['Bebas_Neue'] text-xl text-white tracking-wide">NR</span>
+      <span class="font-['Space_Grotesk'] text-xl text-white font-bold tracking-tight">NR</span>
       <div class="flex items-center gap-5">
         {social.map(s => (
-          <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-text-muted hover:text-accent transition-colors" aria-label={s.name}>
-            <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5"><path d={s.path}/></svg>
+          <a href={s.url} target="_blank" rel="noopener noreferrer" class="glow-hover text-text-muted" aria-label={s.name}>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true"><path d={s.path}/></svg>
           </a>
         ))}
       </div>
-      <span class="font-['JetBrains_Mono'] text-xs text-text-muted">&copy; {new Date().getFullYear()}</span>
+      <span class="font-['JetBrains_Mono'] text-xs text-text-faint">&copy; {new Date().getFullYear()}</span>
     </div>
   </footer>
 
-  <!-- Mobile FAB -->
+  <!-- ═══════════════════════ MOBILE FAB ═══════════════════════ -->
   <div class="sm:hidden fixed bottom-6 right-6 z-50" style="padding-bottom: env(safe-area-inset-bottom)" id="mobile-nav">
     <div id="nav-menu" class="hidden flex-col items-end gap-2 mb-3">
       {navItems.map(n => (
-        <a href={n.href} class="px-4 py-2 text-xs font-['JetBrains_Mono'] text-text bg-surface border border-border rounded-full hover:border-accent hover:text-accent transition-all uppercase tracking-widest">{n.label}</a>
+        <a href={n.href} class="glass-card px-4 py-2 text-xs font-['JetBrains_Mono'] text-text uppercase tracking-widest hover:text-accent hover:border-accent/30 transition-all">{n.label}</a>
       ))}
     </div>
-    <button id="nav-toggle" aria-label="Menu" class="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center shadow-lg shadow-black/50 active:scale-95 transition-transform hover:border-accent">
+    <button id="nav-toggle" aria-label="Menu" class="glass-card w-12 h-12 !rounded-full flex items-center justify-center shadow-lg shadow-black/50 active:scale-95 transition-transform hover:border-accent/30">
       <svg id="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5 text-white">
         <line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/>
       </svg>
@@ -413,9 +505,11 @@ const navItems = [
     </button>
   </div>
 
+</main>
 </Layout>
 
 <script>
+  // ── Mobile Nav Toggle ──
   const toggle = document.getElementById('nav-toggle')!;
   const menu = document.getElementById('nav-menu')!;
   const open = document.getElementById('ico-open')!;
@@ -429,20 +523,168 @@ const navItems = [
     open.classList.remove('hidden'); close.classList.add('hidden');
   });
 
-  const obs = new IntersectionObserver((entries) => {
+  // ── Typing Effect (cycles phrases, then shows all) ──
+  const typingEl = document.getElementById('typing-text');
+  const phrases = ['Technology Leader', 'AI Architect', 'Builder'];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeLoop() {
+    if (!typingEl) return;
+    const currentPhrase = phrases[phraseIndex];
+
+    if (isDeleting) {
+      charIndex--;
+    } else {
+      charIndex++;
+    }
+
+    // Build display: completed phrases + current typing
+    const completed = phrases.slice(0, phraseIndex);
+    let display = '';
+    if (completed.length > 0) {
+      display = completed.join(' \u00B7 ') + ' \u00B7 ';
+    }
+    display += currentPhrase.substring(0, charIndex);
+    typingEl.textContent = display;
+
+    let speed = 80;
+    if (isDeleting) speed = 40;
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      if (phraseIndex === phrases.length - 1) {
+        // Last phrase done — show final combined string
+        typingEl.textContent = phrases.join(' \u00B7 ');
+        setTimeout(() => {
+          const cursor = document.getElementById('typing-subtitle');
+          if (cursor) cursor.classList.remove('typing-cursor');
+        }, 2000);
+        return;
+      }
+      speed = 1500; // pause before deleting
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex++;
+    }
+
+    setTimeout(typeLoop, speed);
+  }
+  setTimeout(typeLoop, 600);
+
+  // ── Scroll-triggered Reveals with Stagger ──
+  const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        (e.target as HTMLElement).style.opacity = '1';
-        (e.target as HTMLElement).style.transform = 'translateY(0)';
-        obs.unobserve(e.target);
+        (e.target as HTMLElement).classList.add('revealed');
+        revealObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('section > div').forEach(el => {
-    (el as HTMLElement).style.opacity = '0';
-    (el as HTMLElement).style.transform = 'translateY(24px)';
-    (el as HTMLElement).style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    obs.observe(el);
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+    revealObs.observe(el);
   });
+
+  // ── Hero Timeline Fill ──
+  const heroTimelineFill = document.getElementById('hero-timeline-fill');
+  const heroTimelineDots = document.querySelectorAll('.hero-timeline-dot');
+  const heroTimelineContainer = document.getElementById('hero-timeline');
+
+  function updateHeroTimeline() {
+    if (!heroTimelineFill || !heroTimelineContainer) return;
+    const rect = heroTimelineContainer.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    const progress = Math.max(0, Math.min(1, (windowH - rect.top) / (rect.height + windowH * 0.3)));
+    const fillPct = progress * 100;
+    heroTimelineFill.style.height = fillPct + '%';
+
+    heroTimelineDots.forEach((dot, i) => {
+      const threshold = ((i + 1) / (heroTimelineDots.length + 0.5));
+      if (progress >= threshold) {
+        dot.classList.add('!border-accent');
+        (dot as HTMLElement).style.boxShadow = '0 0 8px var(--color-accent-muted)';
+      }
+    });
+  }
+
+  // ── Experience Timeline Fill ──
+  const expTimelineFill = document.getElementById('exp-timeline-fill');
+  const expTimeline = document.getElementById('exp-timeline');
+  const expDots = document.querySelectorAll('[data-timeline-dot]');
+
+  function updateExpTimeline() {
+    if (!expTimelineFill || !expTimeline) return;
+    const rect = expTimeline.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    const scrolled = windowH - rect.top;
+    const total = rect.height;
+    const progress = Math.max(0, Math.min(1, scrolled / total));
+    expTimelineFill.style.height = (progress * 100) + '%';
+
+    expDots.forEach((dot, i) => {
+      const dotThreshold = (i + 0.5) / expDots.length;
+      if (progress >= dotThreshold) {
+        dot.classList.add('active');
+      }
+    });
+  }
+
+  // ── Parallax on Gradient Orbs ──
+  const orbs = document.querySelectorAll('[data-parallax]');
+  let scrollY = 0;
+  let ticking = false;
+
+  function updateParallax() {
+    orbs.forEach(orb => {
+      const speed = parseFloat((orb as HTMLElement).dataset.parallax || '0');
+      (orb as HTMLElement).style.transform = `translateY(${scrollY * speed * -1}px)`;
+    });
+    ticking = false;
+  }
+
+  // ── Active Nav Indicator ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom > 100) {
+        current = section.id;
+      }
+    });
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === '#' + current) {
+        link.classList.add('text-accent');
+        link.classList.remove('text-text-muted');
+      } else {
+        link.classList.remove('text-accent');
+        link.classList.add('text-text-muted');
+      }
+    });
+  }
+
+  // ── Unified Scroll Handler ──
+  window.addEventListener('scroll', () => {
+    scrollY = window.scrollY;
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateParallax();
+        updateHeroTimeline();
+        updateExpTimeline();
+        updateActiveNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Initial calls
+  updateHeroTimeline();
+  updateExpTimeline();
+  updateActiveNav();
 </script>
-</main>
